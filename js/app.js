@@ -37,31 +37,35 @@ btnCameraBack.on("click", () => {
 });
 
 btnTakePhoto.on("click", () => {
-  camera.off();
+  if (type !== "") {
+    camera.off();
 
-  photo = camera.takePhoto();
-  $("#example").remove();
-  const card = `
-    <div class="card bg-light">
-      <div class="card-body">
-        <img
-          id="photo"
-          src="${photo}"
-          alt="picture"
-          width="300"
-          height="300"
-        />
-      </div>
-      <div class="card-header">
-        <p class="text-center">
-          <strong>${type}</strong>
-        </p>
-      </div>
-    </div>`;
-  $("#collectionPictures").append(card);
-  if (type === "Frontal") {
-    camera.on();
+    photo = camera.takePhoto();
+    $("#example").remove();
+    const card = `
+      <div class="card bg-light">
+        <div class="card-body">
+          <img
+            id="photo"
+            src="${photo}"
+            alt="picture"
+            width="300"
+            height="300"
+          />
+        </div>
+        <div class="card-header">
+          <p class="text-center">
+            <strong>${type}</strong>
+          </p>
+        </div>
+      </div>`;
+    $("#collectionPictures").append(card);
+    if (type === "Frontal") {
+      camera.on();
+    } else {
+      camera.onBack();
+    }
   } else {
-    camera.onBack();
+    alert("Es necesario encender una cámara");
   }
 });
