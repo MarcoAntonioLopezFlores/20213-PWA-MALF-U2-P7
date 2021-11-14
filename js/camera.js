@@ -26,7 +26,6 @@ class Camera {
         .catch((err) => {
           alert("Ups ocurrio un error al abrir la cámara");
           console.log(err);
-          this.on();
           return false;
         });
     } else {
