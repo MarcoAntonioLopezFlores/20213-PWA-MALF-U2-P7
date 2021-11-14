@@ -20,9 +20,10 @@ if (navigator.serviceWorker) {
 btnCamera.on("click", () => {
   camera.on().then((result) => {
     if (!result) {
-      alert("Error al iniciar la cámara");
+      type = "";
+    } else {
+      type = "Frontal";
     }
-    type = "Frontal";
   });
 });
 
@@ -30,9 +31,10 @@ btnCameraBack.on("click", () => {
   console.log("camara back");
   camera.onBack().then((result) => {
     if (!result) {
-      alert("Error al iniciar la cámara trasera");
+      type = "";
+    } else {
+      type = "Trasera";
     }
-    type = "Trasera";
   });
 });
 
