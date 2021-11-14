@@ -20,7 +20,7 @@ if (navigator.serviceWorker) {
 btnCamera.on("click", () => {
   camera.on().then((result) => {
     if (!result) {
-      type = "";
+      type = "Trasera";
     } else {
       type = "Frontal";
     }
@@ -31,7 +31,7 @@ btnCameraBack.on("click", () => {
   console.log("camara back");
   camera.onBack().then((result) => {
     if (!result) {
-      type = "";
+      type = "Frontal";
     } else {
       type = "Trasera";
     }
